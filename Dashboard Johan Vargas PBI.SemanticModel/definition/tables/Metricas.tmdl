@@ -1,0 +1,49 @@
+table Metricas
+	lineageTag: 9818eb7f-9936-4242-adf5-efcd0761fe84
+
+	measure Registros = COUNT(Source[Rango Edad])
+		formatString: #,0
+		lineageTag: fcdc45af-a73c-4992-b163-2db737c79b58
+
+	measure 'Promedio Ingresos Anuales' = AVERAGE(Source[Compensaciones COP]) + AVERAGE(Source[Salario Anual COP])
+		formatString: \$\ #,0.###############;-\$\ #,0.###############;\$\ #,0.###############
+		lineageTag: 54e126fc-a75e-48f9-b5f3-df6ce340269b
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-CO"}
+
+	measure 'AVG Salario' = AVERAGE(Source[Salario Anual COP])
+		formatString: \$\ #,0.###############;-\$\ #,0.###############;\$\ #,0.###############
+		lineageTag: 124f9dc7-822e-412e-9fa7-7fd9be47e039
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-CO"}
+
+	measure 'Ingresos Anuales' = sum(Source[Compensaciones COP]) + SUM(Source[Salario Anual COP])
+		formatString: \$\ #,0.###############;-\$\ #,0.###############;\$\ #,0.###############
+		lineageTag: cf18ce2d-5d26-45a4-91d5-68c508a0d99f
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-CO"}
+
+	measure avg = DIVIDE([Ingresos Anuales],[Registros])
+		formatString: \$\ #,0.###############;-\$\ #,0.###############;\$\ #,0.###############
+		lineageTag: 96c71acd-1815-4572-82af-34d0b7d146bb
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-CO"}
+
+	column Column
+		isHidden
+		formatString: 0
+		lineageTag: a9249983-5158-44e1-bc4f-15f206d3e423
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Metricas = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 0d933e4770d94b41ac9f77d68e3c64d0
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

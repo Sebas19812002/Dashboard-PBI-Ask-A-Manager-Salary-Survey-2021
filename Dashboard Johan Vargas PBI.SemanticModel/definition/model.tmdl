@@ -1,0 +1,19 @@
+model Model
+	culture: es-CO
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-CO
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Form Responses 1","Tasas","Source"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Source
+ref table Metricas
+
+ref cultureInfo es-CO
+

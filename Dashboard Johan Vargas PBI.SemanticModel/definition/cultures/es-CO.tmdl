@@ -1,0 +1,1379 @@
+cultureInfo es-CO
+
+	linguisticMetadata =
+			{
+			  "Version": "4.1.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "source": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Source"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "source": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "basis": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "font": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "birthplace": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "foundation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "cause": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "spring": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "cradle": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "home": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "informant": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "spokesperson": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        }
+			      ]
+			    },
+			    "source.rango_edad": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Source",
+			          "ConceptualProperty": "Rango Edad"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "rango edad": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "source.industria": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Source",
+			          "ConceptualProperty": "Industria"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "industria": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "source.experiencia_laboral_field": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Source",
+			          "ConceptualProperty": "Experiencia Laboral Field"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "experiencia laboral field": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "experiencia laboral arena": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "experiencia laboral turf": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "experiencia laboral ground": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "experiencia laboral pitch": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "experiencia laboral park": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "experiencia laboral meadow": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "experiencia laboral grassland": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "experiencia laboral lea": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "experiencia laboral pasture": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "experiencia laboral countryside": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        }
+			      ]
+			    },
+			    "source.nivel_de_educación": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Source",
+			          "ConceptualProperty": "Nivel de Educación"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nivel de educación": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "source.genero": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Source",
+			          "ConceptualProperty": "Genero"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "genero": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "source.currency_ISO": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Source",
+			          "ConceptualProperty": "Currency ISO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "currency ISO": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ISO": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "source.cambio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Source",
+			          "ConceptualProperty": "cambio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cambio": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "source.salario_anual_COP": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Source",
+			          "ConceptualProperty": "Salario Anual COP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "salario anual COP": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "source.compensaciones_COP": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Source",
+			          "ConceptualProperty": "Compensaciones COP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "compensaciones COP": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "compensacione COP": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        }
+			      ]
+			    },
+			    "source.pais_def": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Source",
+			          "ConceptualProperty": "Pais Def"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pais def": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "country": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Location"
+			    },
+			    "source.ciudad_DEF": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Source",
+			          "ConceptualProperty": "Ciudad DEF"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ciudad DEF": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "city": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Location"
+			    },
+			    "metrica": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metricas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "metrica": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "metrica.column": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metricas",
+			          "ConceptualProperty": "Column"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "column": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "pilaster": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "pier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "pillar": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "post": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "support": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "stake": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "pole": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "buttress": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "underpinning": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "contribution": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        }
+			      ]
+			    },
+			    "metrica.registros": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metricas",
+			          "ConceptualProperty": "Registros"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "registros": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Respuestas": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrica.promedio_ingresos_anuales": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metricas",
+			          "ConceptualProperty": "Promedio Ingresos Anuales"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "promedio ingresos anuales": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Avg Ingresos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrica.AVG_salario": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metricas",
+			          "ConceptualProperty": "AVG Salario"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "AVG salario": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "average salario": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "metrica.ingresos_anuales": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metricas",
+			          "ConceptualProperty": "Ingresos Anuales"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ingresos anuales": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "metrica.avg": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metricas",
+			          "ConceptualProperty": "avg"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "avg": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    }
+			  },
+			  "Relationships": {
+			    "source_has_metrica_promedio_ingresos_anuales": {
+			      "Binding": {
+			        "ConceptualEntity": "Source"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "source": {
+			          "Target": {
+			            "Entity": "source"
+			          }
+			        },
+			        "metrica.promedio_ingresos_anuales": {
+			          "Target": {
+			            "Entity": "metrica.promedio_ingresos_anuales"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Object": {
+			              "Role": "metrica.promedio_ingresos_anuales"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "sources_have_promedio_ingresos_anuales"
+			        }
+			      ]
+			    },
+			    "source_has_metrica_registros": {
+			      "Binding": {
+			        "ConceptualEntity": "Source"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "source": {
+			          "Target": {
+			            "Entity": "source"
+			          }
+			        },
+			        "metrica.registros": {
+			          "Target": {
+			            "Entity": "metrica.registros"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Object": {
+			              "Role": "metrica.registros"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "sources_have_registros"
+			        }
+			      ]
+			    },
+			    "source_has_ciudad_DEF": {
+			      "Binding": {
+			        "ConceptualEntity": "Source"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "source": {
+			          "Target": {
+			            "Entity": "source"
+			          }
+			        },
+			        "source.ciudad_DEF": {
+			          "Target": {
+			            "Entity": "source.ciudad_DEF"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Object": {
+			              "Role": "source.ciudad_DEF"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "sources_have_ciudad_DEFs"
+			        }
+			      ]
+			    },
+			    "source_has_pais_def": {
+			      "Binding": {
+			        "ConceptualEntity": "Source"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "source": {
+			          "Target": {
+			            "Entity": "source"
+			          }
+			        },
+			        "source.pais_def": {
+			          "Target": {
+			            "Entity": "source.pais_def"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Object": {
+			              "Role": "source.pais_def"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "sources_have_pais_defs"
+			        }
+			      ]
+			    },
+			    "source_has_compensaciones_COP": {
+			      "Binding": {
+			        "ConceptualEntity": "Source"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "source": {
+			          "Target": {
+			            "Entity": "source"
+			          }
+			        },
+			        "source.compensaciones_COP": {
+			          "Target": {
+			            "Entity": "source.compensaciones_COP"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Object": {
+			              "Role": "source.compensaciones_COP"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "sources_have_compensaciones_COPs"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Adjectives": [
+			              {
+			                "expensive": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Antonyms": [
+			              {
+			                "cheap": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "source.compensaciones_COP"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "compensaciones_COP_indicates_how_expensive_sources_are"
+			        }
+			      ]
+			    },
+			    "source_has_salario_anual_COP": {
+			      "Binding": {
+			        "ConceptualEntity": "Source"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "source": {
+			          "Target": {
+			            "Entity": "source"
+			          }
+			        },
+			        "source.salario_anual_COP": {
+			          "Target": {
+			            "Entity": "source.salario_anual_COP"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Object": {
+			              "Role": "source.salario_anual_COP"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "sources_have_salario_anual_COPs"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Adjectives": [
+			              {
+			                "expensive": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Antonyms": [
+			              {
+			                "cheap": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "source.salario_anual_COP"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "salario_anual_COP_indicates_how_expensive_sources_are"
+			        }
+			      ]
+			    },
+			    "source_has_cambio": {
+			      "Binding": {
+			        "ConceptualEntity": "Source"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "source": {
+			          "Target": {
+			            "Entity": "source"
+			          }
+			        },
+			        "source.cambio": {
+			          "Target": {
+			            "Entity": "source.cambio"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Object": {
+			              "Role": "source.cambio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "sources_have_cambios"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Adjectives": [
+			              {
+			                "expensive": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Antonyms": [
+			              {
+			                "cheap": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "source.cambio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "cambio_indicates_how_expensive_sources_are"
+			        }
+			      ]
+			    },
+			    "source_has_currency_ISO": {
+			      "Binding": {
+			        "ConceptualEntity": "Source"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "source": {
+			          "Target": {
+			            "Entity": "source"
+			          }
+			        },
+			        "source.currency_ISO": {
+			          "Target": {
+			            "Entity": "source.currency_ISO"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Object": {
+			              "Role": "source.currency_ISO"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "sources_have_currency_ISO"
+			        }
+			      ]
+			    },
+			    "source_has_genero": {
+			      "Binding": {
+			        "ConceptualEntity": "Source"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "source": {
+			          "Target": {
+			            "Entity": "source"
+			          }
+			        },
+			        "source.genero": {
+			          "Target": {
+			            "Entity": "source.genero"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Object": {
+			              "Role": "source.genero"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "sources_have_generos"
+			        }
+			      ]
+			    },
+			    "source_has_nivel_de_educación": {
+			      "Binding": {
+			        "ConceptualEntity": "Source"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "source": {
+			          "Target": {
+			            "Entity": "source"
+			          }
+			        },
+			        "source.nivel_de_educación": {
+			          "Target": {
+			            "Entity": "source.nivel_de_educación"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Object": {
+			              "Role": "source.nivel_de_educación"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "sources_have_nivel_de_educacións"
+			        }
+			      ]
+			    },
+			    "source_has_experiencia_laboral_field": {
+			      "Binding": {
+			        "ConceptualEntity": "Source"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "source": {
+			          "Target": {
+			            "Entity": "source"
+			          }
+			        },
+			        "source.experiencia_laboral_field": {
+			          "Target": {
+			            "Entity": "source.experiencia_laboral_field"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Object": {
+			              "Role": "source.experiencia_laboral_field"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "sources_have_experiencia_laboral_fields"
+			        }
+			      ]
+			    },
+			    "source_has_industria": {
+			      "Binding": {
+			        "ConceptualEntity": "Source"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "source": {
+			          "Target": {
+			            "Entity": "source"
+			          }
+			        },
+			        "source.industria": {
+			          "Target": {
+			            "Entity": "source.industria"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Object": {
+			              "Role": "source.industria"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "sources_have_industrias"
+			        }
+			      ]
+			    },
+			    "source_has_rango_edad": {
+			      "Binding": {
+			        "ConceptualEntity": "Source"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "source": {
+			          "Target": {
+			            "Entity": "source"
+			          }
+			        },
+			        "source.rango_edad": {
+			          "Target": {
+			            "Entity": "source.rango_edad"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Object": {
+			              "Role": "source.rango_edad"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "sources_have_rango_edads"
+			        }
+			      ]
+			    },
+			    "source_in_ciudad_DEF": {
+			      "Binding": {
+			        "ConceptualEntity": "Source"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "source": {
+			          "Target": {
+			            "Entity": "source"
+			          }
+			        },
+			        "source.ciudad_DEF": {
+			          "Target": {
+			            "Entity": "source.ciudad_DEF"
+			          }
+			        }
+			      },
+			      "SemanticSlots": {
+			        "Where": {
+			          "Role": "source.ciudad_DEF"
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "source.ciudad_DEF"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "sources_are_in_ciudad_DEFs"
+			        }
+			      ]
+			    },
+			    "source_in_pais_def": {
+			      "Binding": {
+			        "ConceptualEntity": "Source"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "source": {
+			          "Target": {
+			            "Entity": "source"
+			          }
+			        },
+			        "source.pais_def": {
+			          "Target": {
+			            "Entity": "source.pais_def"
+			          }
+			        }
+			      },
+			      "SemanticSlots": {
+			        "Where": {
+			          "Role": "source.pais_def"
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "source.pais_def"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "sources_are_in_pais_defs"
+			        }
+			      ]
+			    },
+			    "source_has_metrica_AVG_salario": {
+			      "Binding": {
+			        "ConceptualEntity": "Source"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "source": {
+			          "Target": {
+			            "Entity": "source"
+			          }
+			        },
+			        "metrica.AVG_salario": {
+			          "Target": {
+			            "Entity": "metrica.AVG_salario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Object": {
+			              "Role": "metrica.AVG_salario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "sources_have_AVG_salario"
+			        }
+			      ]
+			    },
+			    "source_has_metrica_ingresos_anuales": {
+			      "Binding": {
+			        "ConceptualEntity": "Source"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "source": {
+			          "Target": {
+			            "Entity": "source"
+			          }
+			        },
+			        "metrica.ingresos_anuales": {
+			          "Target": {
+			            "Entity": "metrica.ingresos_anuales"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Object": {
+			              "Role": "metrica.ingresos_anuales"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "sources_have_ingresos_anuales"
+			        }
+			      ]
+			    },
+			    "source_has_metrica_avg": {
+			      "Binding": {
+			        "ConceptualEntity": "Source"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "source": {
+			          "Target": {
+			            "Entity": "source"
+			          }
+			        },
+			        "metrica.avg": {
+			          "Target": {
+			            "Entity": "metrica.avg"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "source"
+			            },
+			            "Object": {
+			              "Role": "metrica.avg"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "sources_have_avg"
+			        }
+			      ]
+			    }
+			  },
+			  "Agents": {
+			    "Internal": {
+			      "Version": "1.1.0"
+			    }
+			  }
+			}
+		contentType: json
+

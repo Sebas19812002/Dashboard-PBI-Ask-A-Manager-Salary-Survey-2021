@@ -1,0 +1,80 @@
+expression 'Form Responses 1' =
+		let
+		    Origen = Excel.Workbook(File.Contents("C:\Users\Usuario\OneDrive - Universidad de los andes\MIAD\Semestre 2026-11\Visualizacion y Storytelling\Dashboard S2\Source Ask A Manager Salary Survey 2021 (Responses).xlsx"), null, true),
+		    Tabla1_Table = Origen{[Item="Tabla1",Kind="Table"]}[Data],
+		    #"Tipo cambiado2" = Table.TransformColumnTypes(Tabla1_Table,{{"Timestamp", type datetime}, {"How old are you?", type text}, {"What industry do you work in?", type text}, {"Job title", type text}, {"If your job title needs additional context, please clarify here:", type text}, {"What is your annual salary? (You'll indicate the currency in a later question. If you are part-time or hourly, please enter an annualized equivalent -- what you would earn if you worked the job 40 hours a week, 52 weeks a year.)", Int64.Type}, {"How much additional monetary compensation do you get, if any (for example, bonuses or overtime in an average year)? Please only include monetary compensation here, not the value of benefits.", Int64.Type}, {"Please indicate the currency", type text}, {"If ""Other,"" please indicate the currency here: ", type any}, {"If your income needs additional context, please provide it here:", type text}, {"What country do you work in?", type text}, {"If you're in the U.S., what state do you work in?", type text}, {"What city do you work in?", type text}, {"How many years of professional work experience do you have overall?", type text}, {"How many years of professional work experience do you have in your field?", type text}, {"What is your highest level of education completed?", type text}, {"What is your gender?", type text}, {"What is your race? (Choose all that apply.)", type text}}),
+		    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado2",{"Timestamp", "Job title", "If your job title needs additional context, please clarify here:", "If your income needs additional context, please provide it here:", "If you're in the U.S., what state do you work in?", "How many years of professional work experience do you have overall?", "What is your race? (Choose all that apply.)"}),
+		    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Columnas quitadas",{{"What is your gender?", "Genero"}, {"What is your highest level of education completed?", "Nivel de Educación"}, {"How many years of professional work experience do you have in your field?", "Experiencia Laboral Field"}, {"What city do you work in?", "Ciudad"}, {"What country do you work in?", "Pais"}, {"If ""Other,"" please indicate the currency here: ", "Moneda other"}, {"Please indicate the currency", "Moneda"}, {"How much additional monetary compensation do you get, if any (for example, bonuses or overtime in an average year)? Please only include monetary compensation here, not the value of benefits.", "Compensaciones"}, {"What is your annual salary? (You'll indicate the currency in a later question. If you are part-time or hourly, please enter an annualized equivalent -- what you would earn if you worked the job 40 hours a week, 52 weeks a year.)", "Salario Anual"}, {"How old are you?", "Rango Edad"}, {"What industry do you work in?", "Industria"}}),
+		    #"Personalizada agregada" = Table.AddColumn(#"Columnas con nombre cambiado", "Salario Anual DEF", each if [Salario Anual] < 1000 then [Salario Anual]*1000 else [Salario Anual]),
+		    #"Columnas quitadas1" = Table.RemoveColumns(#"Personalizada agregada",{"Salario Anual"}),
+		    #"Valor reemplazado" = Table.ReplaceValue(#"Columnas quitadas1",null,0,Replacer.ReplaceValue,{"Compensaciones"}),
+		    #"Personalizada agregada1" = Table.AddColumn(#"Valor reemplazado", "Compensaciones DEF", each if [Compensaciones]> 0 then [Compensaciones] else 0),
+		    #"Columnas quitadas2" = Table.RemoveColumns(#"Personalizada agregada1",{"Compensaciones"}),
+		    #"Tipo cambiado1" = Table.TransformColumnTypes(#"Columnas quitadas2",{{"Compensaciones DEF", Currency.Type}, {"Salario Anual DEF", Currency.Type}}),
+		    #"Personalizada agregada2" = Table.AddColumn(#"Tipo cambiado1", "Currency", each if [Moneda] = "Other" then [Moneda other] else [Moneda]),
+		    #"Personalizada agregada3" = Table.AddColumn(#"Personalizada agregada2", "Currency ISO", each let
+		    c = Text.Lower(Text.Trim([Currency]))
+		in
+		    if c = "usd" or c = "us dollar" or c = "american dollars" then "USD"
+		    else if c = "inr" or c = "indian rupees" or c = "inr (indian rupee)" or c = "rupees" then "INR"
+		    else if c = "aud" or c = "aud australian" or c = "australian dollars" then "AUD"
+		    else if c = "php" or c = "php " or c = "ph p" or c = "philippine peso (php)" or c = "philippine peso" or c = "philippine pesos" then "PHP"
+		    else if c = "korean won" or c = "krw" or c = "krw (korean won)" then "KRW"
+		    else if c = "eur" or c = "euro" then "EUR"
+		    else if c = "cad" then "CAD"
+		    else if c = "czk" or c = "czech crowns" then "CZK"
+		    else if c = "ars" or c = "argentine peso" or c = "peso argentino" or c = "argentinian peso (ars)" then "ARS"
+		    else if c = "myr" or c = "rm" then "MYR"
+		    else if c = "brl" or c = "brl (r$)" or c = "br$" then "BRL"
+		    else if c = "thb" or c = "thai baht" or c = "thai  baht" then "THB"
+		    else if c = "sgd" or c = "singapore dollara" then "SGD"
+		    else if c = "ils" or c = "ils/nis" or c = "ils (shekel)" or c = "israeli shekels" or c = "nis (new israeli shekel)" then "ILS"
+		    else if c = "mxn" or c = "mexican pesos" then "MXN"
+		    else if c = "nok" or c = "norwegian kroner (nok)" then "NOK"
+		    else if c = "sek" then "SEK"
+		    else if c = "bdt" then "BDT"
+		    else if c = "cny" or c = "china rmb" or c = "rmb (chinese yuan)" then "CNY"
+		    else if c = "zar" then "ZAR"
+		    else if c = "nzd" then "NZD"
+		    else if c = "sar" then "SAR"
+		    else if c = "ngn" then "NGN"
+		    else if c = "pln" or c = "pln (zwoty)" or c = "pln (polish zloty)" or c = "polish złoty" then "PLN"
+		    else if c = "chf" then "CHF"
+		    else if c = "cop" or c = "pesos colombianos" then "COP"
+		    else if c = "jpy" then "JPY"
+		    else if c = "idr" then "IDR"
+		    else if c = "ntd" or c = "taiwanese dollars" then "TWD"
+		    else if c = "tzs" then "TZS"
+		    else if c = "zmw" then "ZMW"
+		    else if c = "gbp" then "GBP"
+		    else if c = "hkd" then "HKD"
+		    else if c = "try" then "TRY"
+		    else if c = "lkr" then "LKR"
+		    else if c = "dkk" or c = "dkk " or c = "danish kroner" then "DKK"
+		    else if c = "ttd" then "TTD"
+		    else null),
+		    #"Columnas quitadas3" = Table.RemoveColumns(#"Personalizada agregada3",{"Moneda", "Moneda other", "Currency"}),
+		    #"Valor reemplazado1" = Table.ReplaceValue(#"Columnas quitadas3",null,"USD",Replacer.ReplaceValue,{"Currency ISO"})
+		in
+		    #"Valor reemplazado1"
+	lineageTag: 9c5fc578-6a9e-41e4-bd00-655e23892a5b
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression Tasas =
+		let
+		    Origen = Excel.Workbook(File.Contents("C:\Users\Usuario\OneDrive - Universidad de los andes\MIAD\Semestre 2026-11\Visualizacion y Storytelling\Dashboard S2\Source Ask A Manager Salary Survey 2021 (Responses).xlsx"), null, true),
+		    Tasas_Sheet = Origen{[Item="Tasas",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(Tasas_Sheet, [PromoteAllScalars=true]),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"cambio", Int64.Type}, {"Concatenado", type text}, {"MONEDA", type text}, {"A COP", type text}}),
+		    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Concatenado", "A COP"})
+		in
+		    #"Columnas quitadas"
+	lineageTag: 905baf7c-11ff-466a-a693-77e2ac5c16c7
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

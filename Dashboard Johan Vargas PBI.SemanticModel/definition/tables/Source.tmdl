@@ -1,0 +1,411 @@
+table Source
+	lineageTag: eb59b039-54cb-4081-8241-7d5675911930
+
+	column 'Rango Edad'
+		dataType: string
+		lineageTag: 2f39e5da-e7d4-4e35-bfdf-be6390964c5c
+		summarizeBy: none
+		sourceColumn: Rango Edad
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industria
+		dataType: string
+		lineageTag: 652aba76-ab92-4cd1-81c0-8afd5a9bb40d
+		summarizeBy: none
+		sourceColumn: Industria
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Experiencia Laboral Field'
+		dataType: string
+		lineageTag: 202a7c34-c330-4221-8f05-e7828072150a
+		summarizeBy: none
+		sourceColumn: Experiencia Laboral Field
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nivel de Educación'
+		dataType: string
+		lineageTag: 5f3f2168-8609-4c50-ac1a-70c5aac00d5a
+		summarizeBy: none
+		sourceColumn: Nivel de Educación
+
+		annotation SummarizationSetBy = Automatic
+
+	column Genero
+		dataType: string
+		lineageTag: 8025b33f-7c44-454c-a945-0cbf4cbc07a1
+		summarizeBy: none
+		sourceColumn: Genero
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Currency ISO'
+		dataType: string
+		lineageTag: 6fc425be-58db-4337-ba2b-c900986bf176
+		summarizeBy: none
+		sourceColumn: Currency ISO
+
+		annotation SummarizationSetBy = Automatic
+
+	column cambio
+		dataType: decimal
+		formatString: \$\ #,0.###############;-\$\ #,0.###############;\$\ #,0.###############
+		lineageTag: 03144b93-1d29-47a5-8160-a4633f40d5e0
+		summarizeBy: sum
+		sourceColumn: cambio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-CO"}
+
+	column 'Salario Anual COP'
+		dataType: decimal
+		formatString: \$\ #,0.###############;-\$\ #,0.###############;\$\ #,0.###############
+		lineageTag: 6db6c0d3-faf5-4961-bad7-ae3ba50eb726
+		summarizeBy: sum
+		sourceColumn: Salario Anual COP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-CO"}
+
+	column 'Compensaciones COP'
+		dataType: decimal
+		formatString: \$\ #,0.###############;-\$\ #,0.###############;\$\ #,0.###############
+		lineageTag: 4544f404-bba5-4f0e-aad4-6a7cd09d9c83
+		summarizeBy: sum
+		sourceColumn: Compensaciones COP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-CO"}
+
+	column 'Pais Def'
+		dataType: string
+		lineageTag: ec8e13c0-f229-48b8-96a0-7fcb701d92cf
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: Pais Def
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ciudad DEF'
+		dataType: string
+		lineageTag: 8e4d87fe-8ec7-4af2-b595-f7121a12a938
+		dataCategory: City
+		summarizeBy: none
+		sourceColumn: Ciudad DEF
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Source = m
+		mode: import
+		source = ```
+				let
+				    Origen = Table.NestedJoin(#"Form Responses 1", {"Currency ISO"}, Tasas, {"MONEDA"}, "Tasas", JoinKind.LeftOuter),
+				    #"Se expandió Tasas" = Table.ExpandTableColumn(Origen, "Tasas", {"cambio"}, {"cambio"}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Se expandió Tasas",{{"cambio", Currency.Type}}),
+				    #"Personalizada agregada" = Table.AddColumn(#"Tipo cambiado", "Salario Anual COP", each [Salario Anual DEF] *[cambio]),
+				    #"Tipo cambiado1" = Table.TransformColumnTypes(#"Personalizada agregada",{{"Salario Anual COP", Currency.Type}}),
+				    #"Personalizada agregada1" = Table.AddColumn(#"Tipo cambiado1", "Compensaciones COP", each [cambio]*[Compensaciones DEF]),
+				    #"Tipo cambiado2" = Table.TransformColumnTypes(#"Personalizada agregada1",{{"Compensaciones COP", Currency.Type}}),
+				    #"Texto limpio" = Table.TransformColumns(#"Tipo cambiado2",{{"Pais", Text.Clean, type text}, {"Ciudad", Text.Clean, type text}}),
+				    #"Texto en minúsculas" = Table.TransformColumns(#"Texto limpio",{{"Pais", Text.Lower, type text}, {"Ciudad", Text.Lower, type text}}),
+				    #"Personalizada agregada2" = Table.AddColumn(#"Texto en minúsculas", "Pais Def", each let
+				    c = Text.Upper(Text.Trim([Pais]))
+				in
+				    if Text.Contains(c, "UNITED STATES") 
+				        or Text.Contains(c, "U.S")
+				        or Text.Contains(c, "UNIITED STATES")
+				        or Text.Contains(c, "UNITE STATES")
+				        or Text.Contains(c, "UNITED  STATES")
+				or Text.Contains(c, "UNITED KINDOM")
+				or Text.Contains(c, "UNITED SATES")
+				or Text.Contains(c, "UNITED STARES")
+				or Text.Contains(c, "UNITED STATE")
+				or Text.Contains(c, "UNITED STATEA")
+				or Text.Contains(c, "UNITED STATED")
+				or Text.Contains(c, "UNITED STATEDS")
+				or Text.Contains(c, "UNITED STATEES")
+				or Text.Contains(c, "UNITED STATEW")
+				or Text.Contains(c, "UNITED STATSS")
+				or Text.Contains(c, "UNITED STATTES")
+				or Text.Contains(c, "UNITED STATUES")
+				or Text.Contains(c, "UNITED STATWS")
+				or Text.Contains(c, "UNITED STTES")
+				or Text.Contains(c, "UNITED Y")
+				or Text.Contains(c, "UNITEDSTATES")
+				or Text.Contains(c, "UNITEED STATES")
+				or Text.Contains(c, "UNITEF STATED")
+				or Text.Contains(c, "UNITER STATEZ")
+				 or Text.Contains(c, "UNITES STATES")
+				or Text.Contains(c, "UNITIED STATES")
+				or Text.Contains(c, "UNIYED STATES")
+				or Text.Contains(c, "UNIYES STATES")
+				or Text.Contains(c, "UNTED STATES")
+				or Text.Contains(c, "UNTIED STATES")
+				or Text.Contains(c, "U. S")
+				or Text.Contains(c, "U. S.")
+				        or Text.Contains(c, "USA")
+				        or Text.Contains(c, "US OF A")
+				        or Text.Contains(c, "US")
+				        or Text.Contains(c, "AMERICA")
+				        or Text.Contains(c, "CALIFORNIA")
+				        or Text.Contains(c, "VIRGINIA")
+				        or Text.Contains(c, "PUERTO RICO")
+				    then "United States"
+				
+				    else if Text.Contains(c, "UNITED KINGDOM")
+				
+				        or Text.Contains(c, "UK")
+				        or Text.Contains(c, "U.K")
+				        or Text.Contains(c, "ENGLAND")
+				        or Text.Contains(c, "SCOTLAND")
+				        or Text.Contains(c, "WALES")
+				        or Text.Contains(c, "NORTHERN IRELAND")
+				        or Text.Contains(c, "GREAT BRITAIN")
+				        or Text.Contains(c, "BRITAIN")
+				    then "United Kingdom"
+				
+				    else if Text.Contains(c, "CANADA")
+				        or Text.Contains(c, "CAN")
+				        or Text.Contains(c, "OTTAWA")
+				    then "Canada"
+				
+				    else if Text.Contains(c, "AUSTRALIA")
+				        or Text.Contains(c, "AUSTRALI")
+				    then "Australia"
+				    else if Text.Contains(c, "AFGHANISTA")
+				    then "Afganistan"
+				    else if Text.Contains(c, "COSTA RICA")
+				    then "Costa Rica"
+				else if Text.Contains(c, "CUBA")
+				    then "Cuba"
+				    else if Text.Contains(c, "NEW ZEALAND")
+				        or Text.Contains(c, "AOTEAROA")
+				        or Text.Contains(c, "NZ")
+				    then "New Zealand"
+				
+				    else if Text.Contains(c, "GERMANY")
+				    then "Germany"
+				
+				    else if Text.Contains(c, "FRANCE")
+				    then "France"
+				
+				    else if Text.Contains(c, "SPAIN")
+				    then "Spain"
+				
+				    else if Text.Contains(c, "ITALY")
+				        or Text.Contains(c, "ITALIA")
+				    then "Italy"
+				
+				    else if Text.Contains(c, "NETHERLANDS")
+				        or Text.Contains(c, "NEDERLAND")
+				        or Text.Contains(c, "NL")
+				    then "Netherlands"
+				
+				    else if Text.Contains(c, "BELGIUM")
+				    then "Belgium"
+				
+				    else if Text.Contains(c, "SWEDEN")
+				    then "Sweden"
+				
+				    else if Text.Contains(c, "NORWAY")
+				    then "Norway"
+				
+				    else if Text.Contains(c, "DENMARK")
+				        or Text.Contains(c, "DANMARK")
+				    then "Denmark"
+				
+				    else if Text.Contains(c, "FINLAND")
+				    then "Finland"
+				
+				    else if Text.Contains(c, "IRELAND")
+				    then "Ireland"
+				
+				    else if Text.Contains(c, "SWITZERLAND")
+				    then "Switzerland"
+				
+				    else if Text.Contains(c, "AUSTRIA")
+				    then "Austria"
+				
+				    else if Text.Contains(c, "PORTUGAL")
+				    then "Portugal"
+				
+				    else if Text.Contains(c, "POLAND")
+				    then "Poland"
+				
+				    else if Text.Contains(c, "CZECH")
+				        or Text.Contains(c, "ČESKÁ")
+				    then "Czech Republic"
+				
+				    else if Text.Contains(c, "ROMANIA")
+				    then "Romania"
+				
+				    else if Text.Contains(c, "UKRAINE")
+				    then "Ukraine"
+				
+				    else if Text.Contains(c, "RUSSIA")
+				    then "Russia"
+				
+				    else if Text.Contains(c, "CHINA")
+				    then "China"
+				
+				    else if Text.Contains(c, "HONG KONG")
+				    then "Hong Kong"
+				
+				    else if Text.Contains(c, "TAIWAN")
+				    then "Taiwan"
+				
+				    else if Text.Contains(c, "JAPAN")
+				    then "Japan"
+				
+				    else if Text.Contains(c, "SOUTH KOREA")
+				        or Text.Contains(c, "KOREA")
+				    then "South Korea"
+				
+				    else if Text.Contains(c, "INDIA")
+				    then "India"
+				
+				    else if Text.Contains(c, "PAKISTAN")
+				    then "Pakistan"
+				
+				    else if Text.Contains(c, "BANGLADESH")
+				    then "Bangladesh"
+				
+				    else if Text.Contains(c, "SRI LANKA")
+				    then "Sri Lanka"
+				
+				    else if Text.Contains(c, "PHILIPPINES")
+				    then "Philippines"
+				
+				    else if Text.Contains(c, "SINGAPORE")
+				    then "Singapore"
+				
+				    else if Text.Contains(c, "MALAYSIA")
+				    then "Malaysia"
+				
+				    else if Text.Contains(c, "THAILAND")
+				    then "Thailand"
+				
+				    else if Text.Contains(c, "VIETNAM")
+				    then "Vietnam"
+				
+				    else if Text.Contains(c, "INDONESIA")
+				    then "Indonesia"
+				
+				    else if Text.Contains(c, "SAUDI")
+				    then "Saudi Arabia"
+				
+				    else if Text.Contains(c, "UAE")
+				        or Text.Contains(c, "UNITED ARAB EMIRATES")
+				    then "United Arab Emirates"
+				
+				    else if Text.Contains(c, "QATAR")
+				    then "Qatar"
+				
+				    else if Text.Contains(c, "KUWAIT")
+				    then "Kuwait"
+				
+				    else if Text.Contains(c, "ISRAEL")
+				    then "Israel"
+				
+				    else if Text.Contains(c, "TURKEY")
+				    then "Turkey"
+				
+				    else if Text.Contains(c, "MEXICO")
+				        or Text.Contains(c, "MÉXICO")
+				    then "Mexico"
+				
+				    else if Text.Contains(c, "BRAZIL")
+				        or Text.Contains(c, "BRASIL")
+				    then "Brazil"
+				
+				    else if Text.Contains(c, "ARGENTINA")
+				    then "Argentina"
+				
+				    else if Text.Contains(c, "CHILE")
+				    then "Chile"
+				
+				    else if Text.Contains(c, "COLOMBIA")
+				    then "Colombia"
+				
+				    else if Text.Contains(c, "PERU")
+				    then "Peru"
+				
+				    else if Text.Contains(c, "ECUADOR")
+				    then "Ecuador"
+				
+				    else if Text.Contains(c, "URUGUAY")
+				    then "Uruguay"
+				
+				    else if Text.Contains(c, "AFRICA")
+				        or Text.Contains(c, "EUROPE")
+				        or Text.Contains(c, "GLOBAL")
+				        or Text.Contains(c, "REMOTE")
+				        or Text.Contains(c, "WORLD")
+				        or Text.Contains(c, "INTERNATIONAL")
+				        or Text.Contains(c, "N/A")
+				        or Text.Contains(c, "NA")
+				        or Text.Length(c) < 2
+				    then "NA"
+				
+				    else "NA"),
+				    #"Personalizada agregada3" = Table.AddColumn(#"Personalizada agregada2", "Ciudad DEF", each let
+				    x = Text.Lower(Text.Trim([Ciudad])),
+				
+				    invalid =
+				        List.AnyTrue({
+				            Text.Contains(x, "remote"),
+				            Text.Contains(x, "wfh"),
+				            Text.Contains(x, "work from home"),
+				            Text.Contains(x, "prefer"),
+				            Text.Contains(x, "not answer"),
+				            Text.Contains(x, "anonymous"),
+				            Text.Contains(x, "decline"),
+				            Text.Contains(x, "n/a"),
+				            Text.Contains(x, "na"),
+				            Text.Contains(x, "rural"),
+				            Text.Contains(x, "metro"),
+				            Text.Contains(x, "area"),
+				            Text.Contains(x, "region"),
+				            Text.Contains(x, "county"),
+				            Text.Contains(x, "state"),
+				            Text.Contains(x, "too"),
+				            Text.Contains(x, "identif"),
+				            x = "",
+				            x = "--",
+				            x = "-"
+				        }),
+				
+				    standardized =
+				        if invalid then "NA"
+				        else if List.Contains({"nyc","New York", "new york, ny", "new york city", "nyc ny"}, x) then "New York City"
+				        else if List.Contains({"sf", "sf bay area", "san francisco bay area"}, x) then "San Francisco"
+				        else if List.Contains({"dc", "washington dc", "washington, dc", "washington d.c."}, x) then "Washington"
+				        else if List.Contains({"la", "los angeles metro", "los angeles county"}, x) then "Los Angeles"
+				        else if List.Contains({"minneapolis/st paul", "twin cities", "st paul/minneapolis"}, x) then "Minneapolis–Saint Paul"
+				        else if Text.Contains(x, "/") then "NA"
+				        else Text.Proper(
+				            Text.BeforeDelimiter(
+				                Text.BeforeDelimiter(x, ","),
+				                "("
+				            )
+				        )
+				in
+				    standardized),
+				    #"Valor reemplazado" = Table.ReplaceValue(#"Personalizada agregada3","-----","NA",Replacer.ReplaceText,{"Ciudad DEF"}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Valor reemplazado",{"Pais", "Ciudad", "Salario Anual DEF", "Compensaciones DEF"}),
+				    #"Valor reemplazado1" = Table.ReplaceValue(#"Columnas quitadas","Other or prefer not to answer","No Answer",Replacer.ReplaceText,{"Genero"}),
+				    #"Valor reemplazado2" = Table.ReplaceValue(#"Valor reemplazado1",null,"No Answer",Replacer.ReplaceValue,{"Genero"}),
+				    #"Valor reemplazado3" = Table.ReplaceValue(#"Valor reemplazado2","Prefer not to answer","No Answer",Replacer.ReplaceText,{"Genero"})
+				in
+				    #"Valor reemplazado3"
+				```
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
